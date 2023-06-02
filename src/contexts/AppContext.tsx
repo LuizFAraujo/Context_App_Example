@@ -2,7 +2,8 @@ import { createContext, useState } from "react";
 
 
 interface IUser {
-    img: string | JSX.Element;
+    // img: string | JSX.Element;
+    img: string;
     name: string;
 }
 
