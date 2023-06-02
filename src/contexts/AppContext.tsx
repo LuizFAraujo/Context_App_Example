@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 
 interface IUser {
-    img: string;
+    img: string | JSX.Element;
     name: string;
 }
 
@@ -21,7 +21,8 @@ export const AppProvider = ({ children }: { children: JSX.Element }) => {
     const [data, setData] = useState<IUser>()
 
     function updateUser(user: IUser) {
-        setData(user)
+        console.log('updateUser called', user);
+        setData(user);
     }
 
     return (

@@ -1,6 +1,5 @@
 import { UserAvatar } from "./UserAvatar";
 
-
 const style = {
   container: {
     width: '100vw',
@@ -12,8 +11,8 @@ const style = {
   }
 };
 
-
 export function Avatar() {
+
   return (
     <div style={style.container}>
       <h2> User Page </h2>
