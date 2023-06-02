@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 
 
 interface IUser {
@@ -21,10 +21,10 @@ export const AppContext = createContext<IAppContext>({
 export const AppProvider = ({ children }: { children: JSX.Element }) => {
     const [data, setData] = useState<IUser>()
 
-    function updateUser(user: IUser) {
+    const updateUser = useCallback((user: IUser) => {
         console.log('updateUser called', user);
         setData(user);
-    }
+    }, []);
 
     return (
         <AppContext.Provider value={{ user: data, updateUser }}>
