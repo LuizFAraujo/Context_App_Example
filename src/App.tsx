@@ -17,9 +17,11 @@ export default function App() {
   };
 
   useEffect(() => {
-    getData().then((data) => {
-      context.updateUser(data)
-    })
+    if (!context.user) {
+      getData().then((data) => {
+        context.updateUser(data)
+      });
+    }
   }, [])
 
   return (

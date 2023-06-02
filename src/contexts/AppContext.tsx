@@ -1,4 +1,5 @@
 import { createContext, useCallback, useState } from "react";
+import { useLocalStorage } from "react-use";
 
 
 interface IUser {
@@ -19,7 +20,8 @@ export const AppContext = createContext<IAppContext>({
 
 
 export const AppProvider = ({ children }: { children: JSX.Element }) => {
-    const [data, setData] = useState<IUser>()
+    // const [data, setData] = useState<IUser>();
+    const [data, setData] = useLocalStorage<IUser>("user-logged", undefined);
 
     const updateUser = useCallback((user: IUser) => {
         console.log('updateUser called', user);
